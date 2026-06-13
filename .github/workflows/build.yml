@@ -15,7 +15,7 @@ jobs:
             arch: aarch64_cortex-a53
             target: mediatek
             subtarget: filogic
-            custom_packages: "sstp-client"
+            custom_packages: "sstp-client vsftpd"
             builtin_packages: "dnsmasq busybox"
             extra_config: |
               CONFIG_BUSYBOX_CUSTOM=y
