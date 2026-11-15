@@ -81,6 +81,7 @@ setup_vsftpd() {
 	local validation_result="$2"
 
 	if [ "$validation_result" != "0" ]; then
+		validation_failed=1
 		echo "Validation failed for section: $section"
 		return 1
 	fi
@@ -139,13 +140,13 @@ setup_vsftpd() {
 	[ -n "$invoking_security_mode" ] && INVOKING_SECURITY_MODE="$invoking_security_mode"
 
 	case "$LISTEN_MODE" in
-		both)
-			write_conf_bool "listen" "0"
-			write_conf_bool "listen_ipv6" "1"
-			;;
 		ipv4)
 			write_conf_bool "listen" "1"
 			write_conf_bool "listen_ipv6" "0"
+			;;
+		both|*)
+			write_conf_bool "listen" "0"
+			write_conf_bool "listen_ipv6" "1"
 			;;
 	esac
 
@@ -161,16 +162,18 @@ procd_vsftpd_instance() {
 	local name="vsftpd-$listen_port"
 
 	procd_open_instance "$name"
-	[ "$use_mdns" = "1" ] && procd_add_mdns "ftp" "tcp" "$port_val" "daemon=vsftpd"
+	[ "$use_mdns" = "1" ] && procd_add_mdns "ftp" "tcp" "$listen_port" "daemon=vsftpd"
 	procd_set_param command "$BIN" "$OUTPUT_CONF" \
 		"-olisten_port=$listen_port" \
 		"-oimplicit_ssl=$implicit_ssl"
+	procd_set_param file "$OUTPUT_CONF"
 	procd_set_param respawn
 	procd_close_instance
 }
 
 start_service() {
 	local disabled mdns conf_file
+	local validation_failed=0
 
 	# Load UCI configuration for vsftpd
 	config_load vsftpd
@@ -195,23 +198,26 @@ start_service() {
 		procd_open_instance "vsftpd"
 		[ "${mdns}" -eq 1 ] && procd_add_mdns "ftp" "tcp" "$PORT" "daemon=vsftpd"
 		procd_set_param command "$BIN" "$OUTPUT_CONF"
+		procd_set_param file "$OUTPUT_CONF"
 		procd_set_param respawn
 		procd_close_instance
 		return
 	fi
 
 	config_foreach validate_vsftpd_section global setup_vsftpd
+	# config_foreach does not aggregate validation failures from callbacks.
+	[ "$validation_failed" -eq 0 ] || return 1
 
 	case "$INVOKING_SECURITY_MODE" in
-		explicit)
-			procd_vsftpd_instance "$PORT" "NO" "1"
+		implicit)
+			procd_vsftpd_instance "$PORT_IMPLICIT" "YES" "$mdns"
 			;;
 		both)
-			procd_vsftpd_instance "$PORT" "NO" "1"
+			procd_vsftpd_instance "$PORT" "NO" "$mdns"
 			procd_vsftpd_instance "$PORT_IMPLICIT" "YES" "0"
 			;;
-		implicit)
-			procd_vsftpd_instance "$PORT_IMPLICIT" "YES" "0"
+		explicit|*)
+			procd_vsftpd_instance "$PORT" "NO" "$mdns"
 			;;
 	esac
 }
