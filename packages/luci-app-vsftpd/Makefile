@@ -4,7 +4,7 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI Support for vsftpd
-LUCI_DEPENDS:=+luci-base +vsftpd||+vsftpd-tls
+LUCI_DEPENDS:=+luci-base +vsftpd-any
 LUCI_PKGARCH:=all
 
 PKG_VERSION:=1.0.0
