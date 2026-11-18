@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2026-06-12 00:00+0000\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "FTP Server"
+msgstr "FTP-сервер"
+
+msgid "FTP Server (vsftpd)"
+msgstr "FTP-сервер (vsftpd)"
+
+msgid "Grant UCI and RPC access to LuCI vsftpd app"
+msgstr "Предоставить доступ к UCI и RPC для LuCI vsftpd"
+
+msgid "Service Status"
+msgstr "Статус службы"
+
+msgid "Running"
+msgstr "Запущена"
+
+msgid "Stopped"
+msgstr "Остановлена"
+
+msgid "General Settings"
+msgstr "Основные настройки"
+
+msgid "Disabled"
+msgstr "Отключить"
+
+msgid "Disable the vsftpd service entirely."
+msgstr "Полностью отключить службу vsftpd."
+
+msgid "Listen Mode"
+msgstr "Режим прослушивания"
+
+msgid "IP protocol to listen on."
+msgstr "Протокол IP для прослушивания."
+
+msgid "IPv4 and IPv6 (dual-stack)"
+msgstr "IPv4 и IPv6 (двойной стек)"
+
+msgid "IPv4 only"
+msgstr "Только IPv4"
+
+msgid "FTP Port"
+msgstr "Порт FTP"
+
+msgid "TCP port for incoming connections (default: 21)."
+msgstr "TCP-порт для входящих подключений (по умолчанию: 21)."
+
+msgid "mDNS Advertisement"
+msgstr "Объявление mDNS"
+
+msgid "Advertise the FTP service via mDNS/Avahi."
+msgstr "Объявлять FTP-службу через mDNS/Avahi."
+
+msgid "Welcome Banner"
+msgstr "Приветственный баннер"
+
+msgid "Message shown to clients upon connection."
+msgstr "Сообщение, отображаемое клиентам при подключении."
+
+msgid "Welcome to FTP service."
+msgstr "Добро пожаловать в FTP-службу."
+
+msgid "Custom Config File"
+msgstr "Пользовательский файл конфигурации"
+
+msgid "Path to a static vsftpd.conf. Leave empty to use UCI settings above."
+msgstr "Путь к статичному файлу vsftpd.conf. Оставьте пустым для использования настроек UCI."
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "Allow Local Users"
+msgstr "Разрешить локальных пользователей"
+
+msgid "Permit local system users to log in."
+msgstr "Разрешить вход локальным пользователям системы."
+
+msgid "Local Root Directory"
+msgstr "Корневой каталог локальных пользователей"
+
+msgid "Directory to change into after local user login. Leave empty for home directory."
+msgstr "Каталог для перехода после входа локального пользователя. Оставьте пустым для использования домашнего каталога."
+
+msgid "Allow Writes"
+msgstr "Разрешить запись"
+
+msgid "Enable write commands (upload, delete, rename)."
+msgstr "Включить команды записи (загрузка, удаление, переименование)."
+
+msgid "Local Umask"
+msgstr "Маска прав (umask) для локальных пользователей"
+
+msgid "Umask for files created by local users (octal, e.g. 022)."
+msgstr "Маска прав для файлов локальных пользователей (восьмеричная, напр. 022)."
+
+msgid "Allow Anonymous Access"
+msgstr "Разрешить анонимный доступ"
+
+msgid "Permit anonymous FTP logins."
+msgstr "Разрешить анонимный вход по FTP."
+
+msgid "Anonymous Root Directory"
+msgstr "Корневой каталог анонимных пользователей"
+
+msgid "Directory to change into after anonymous login."
+msgstr "Каталог для перехода после анонимного входа."
+
+msgid "Chroot Local Users"
+msgstr "Chroot для локальных пользователей"
+
+msgid "Restrict local users to their home directory via chroot."
+msgstr "Ограничить локальных пользователей их домашним каталогом через chroot."
+
+msgid "Allow Writeable Chroot"
+msgstr "Разрешить запись в chroot-каталог"
+
+msgid "Allow chroot directory to be writeable (security risk; use with caution)."
+msgstr "Разрешить запись в chroot-каталог (риск безопасности; используйте с осторожностью)."
+
+msgid "Check Shell"
+msgstr "Проверять оболочку"
+
+msgid "Deny login if user shell is not listed in /etc/shells."
+msgstr "Запрещать вход, если оболочка пользователя не указана в /etc/shells."
+
+msgid "Directory Messages"
+msgstr "Сообщения каталога"
+
+msgid "Show .message file contents when entering a directory."
+msgstr "Показывать содержимое файла .message при входе в каталог."
+
+msgid "Passive Mode"
+msgstr "Пассивный режим"
+
+msgid "Enable Passive Mode (PASV)"
+msgstr "Включить пассивный режим (PASV)"
+
+msgid "Allow passive mode data connections."
+msgstr "Разрешить подключения данных в пассивном режиме."
+
+msgid "Minimum PASV Port"
+msgstr "Минимальный порт PASV"
+
+msgid "Lowest port for passive mode data connections (0 = any)."
+msgstr "Минимальный порт для подключений данных в пассивном режиме (0 = любой)."
+
+msgid "Maximum PASV Port"
+msgstr "Максимальный порт PASV"
+
+msgid "Highest port for passive mode data connections (0 = any)."
+msgstr "Максимальный порт для подключений данных в пассивном режиме (0 = любой)."
+
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+msgid "Enable SSL/TLS"
+msgstr "Включить SSL/TLS"
+
+msgid "Enable SSL/TLS support (requires vsftpd-tls variant)."
+msgstr "Включить поддержку SSL/TLS (требуется вариант vsftpd-tls)."
+
+msgid "TLS Mode"
+msgstr "Режим TLS"
+
+msgid "How TLS is invoked for connections."
+msgstr "Способ активации TLS для подключений."
+
+msgid "Explicit TLS via STARTTLS (port 21)"
+msgstr "Явный TLS через STARTTLS (порт 21)"
+
+msgid "Both Explicit (port 21) and Implicit (port 990)"
+msgstr "Явный (порт 21) и неявный (порт 990)"
+
+msgid "Implicit TLS only (port 990)"
+msgstr "Только неявный TLS (порт 990)"
+
+msgid "Implicit TLS Port"
+msgstr "Порт неявного TLS"
+
+msgid "TCP port for implicit TLS connections (default: 990)."
+msgstr "TCP-порт для неявных TLS-подключений (по умолчанию: 990)."
+
+msgid "Allow Anonymous SSL"
+msgstr "Разрешить анонимный SSL"
+
+msgid "Allow anonymous users to use SSL connections."
+msgstr "Разрешить анонимным пользователям использовать SSL-подключения."
+
+msgid "Require SSL for Data"
+msgstr "Требовать SSL для данных"
+
+msgid "Require SSL for local user data connections."
+msgstr "Требовать SSL для подключений данных локальных пользователей."
+
+msgid "Require SSL for Login"
+msgstr "Требовать SSL для входа"
+
+msgid "Require SSL for local user login."
+msgstr "Требовать SSL при входе локальных пользователей."
+
+msgid "Enable TLSv1"
+msgstr "Включить TLSv1"
+
+msgid "Allow TLS version 1."
+msgstr "Разрешить TLS версии 1."
+
+msgid "Enable SSLv2"
+msgstr "Включить SSLv2"
+
+msgid "Allow SSL version 2 (insecure, not recommended)."
+msgstr "Разрешить SSL версии 2 (небезопасно, не рекомендуется)."
+
+msgid "Enable SSLv3"
+msgstr "Включить SSLv3"
+
+msgid "Allow SSL version 3 (insecure, not recommended)."
+msgstr "Разрешить SSL версии 3 (небезопасно, не рекомендуется)."
+
+msgid "RSA Certificate File"
+msgstr "Файл RSA-сертификата"
+
+msgid "Path to the SSL/TLS certificate file."
+msgstr "Путь к файлу SSL/TLS-сертификата."
+
+msgid "RSA Private Key File"
+msgstr "Файл приватного ключа RSA"
+
+msgid "Path to the SSL/TLS private key file."
+msgstr "Путь к файлу приватного ключа SSL/TLS."
+
+msgid "Logging"
+msgstr "Журналирование"
+
+msgid "Log to Syslog"
+msgstr "Журналировать в syslog"
+
+msgid "Send log messages to syslog instead of a log file."
+msgstr "Отправлять сообщения журнала в syslog вместо файла журнала."
+
+msgid "Transfer Log"
+msgstr "Журнал передачи файлов"
+
+msgid "Enable logging of file transfers."
+msgstr "Включить журналирование передачи файлов."
+
+msgid "Transfer Log File"
+msgstr "Файл журнала передачи"
+
+msgid "Path to the transfer log file."
+msgstr "Путь к файлу журнала передачи."
+
+msgid "Standard Xferlog Format"
+msgstr "Стандартный формат xferlog"
+
+msgid "Use standard xferlog format (compatible with wu-ftpd)."
+msgstr "Использовать стандартный формат xferlog (совместимый с wu-ftpd)."
+
+msgid "vsftpd Log File"
+msgstr "Файл журнала vsftpd"
+
+msgid "Path to the vsftpd-specific log file."
+msgstr "Путь к файлу журнала vsftpd."
+
+msgid "Session Support"
+msgstr "Поддержка сессий"
+
+msgid "Maintain login sessions (requires PAM, usually disabled on OpenWrt)."
+msgstr "Поддерживать сессии входа (требует PAM, обычно отключено в OpenWrt)."
+
+msgid "User List"
+msgstr "Список пользователей"
+
+msgid "Enable a user list file to allow or deny specific users."
+msgstr "Включить файл списка пользователей для разрешения или запрета доступа."
+
+msgid "User List is Deny List"
+msgstr "Список пользователей — список запрета"
+
+msgid "If enabled, listed users are denied. If disabled, only listed users are allowed."
+msgstr "Если включено — перечисленные пользователи запрещены. Если отключено — разрешены только перечисленные."
+
+msgid "User List File"
+msgstr "Файл списка пользователей"
+
+msgid "Path to the user list file."
+msgstr "Путь к файлу списка пользователей."

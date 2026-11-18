@@ -1,0 +1,290 @@
+# LuCI vsftpd translation template
+# Copyright (C) 2024
+# This file is distributed under the same license as the luci-app-vsftpd package.
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "FTP Server (vsftpd)"
+msgstr ""
+
+msgid "Configure the vsftpd FTP server. Changes take effect after Save & Apply."
+msgstr ""
+
+msgid "Service Status"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Stopped"
+msgstr ""
+
+msgid "General Settings"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Disable the vsftpd service entirely."
+msgstr ""
+
+msgid "Listen Mode"
+msgstr ""
+
+msgid "IP protocol to listen on."
+msgstr ""
+
+msgid "IPv4 and IPv6 (dual-stack)"
+msgstr ""
+
+msgid "IPv4 only"
+msgstr ""
+
+msgid "FTP Port"
+msgstr ""
+
+msgid "TCP port for incoming connections (default: 21)."
+msgstr ""
+
+msgid "mDNS Advertisement"
+msgstr ""
+
+msgid "Advertise the FTP service via mDNS/Avahi."
+msgstr ""
+
+msgid "Welcome Banner"
+msgstr ""
+
+msgid "Message shown to clients upon connection."
+msgstr ""
+
+msgid "Welcome to FTP service."
+msgstr ""
+
+msgid "Custom Config File"
+msgstr ""
+
+msgid "Path to a static vsftpd.conf. Leave empty to use UCI settings above."
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Allow Local Users"
+msgstr ""
+
+msgid "Permit local system users to log in."
+msgstr ""
+
+msgid "Local Root Directory"
+msgstr ""
+
+msgid "Directory to change into after local user login. Leave empty for home directory."
+msgstr ""
+
+msgid "Allow Writes"
+msgstr ""
+
+msgid "Enable write commands (upload, delete, rename)."
+msgstr ""
+
+msgid "Local Umask"
+msgstr ""
+
+msgid "Umask for files created by local users (octal, e.g. 022)."
+msgstr ""
+
+msgid "Allow Anonymous Access"
+msgstr ""
+
+msgid "Permit anonymous FTP logins."
+msgstr ""
+
+msgid "Anonymous Root Directory"
+msgstr ""
+
+msgid "Directory to change into after anonymous login."
+msgstr ""
+
+msgid "Chroot Local Users"
+msgstr ""
+
+msgid "Restrict local users to their home directory via chroot."
+msgstr ""
+
+msgid "Allow Writeable Chroot"
+msgstr ""
+
+msgid "Allow chroot directory to be writeable (security risk; use with caution)."
+msgstr ""
+
+msgid "Check Shell"
+msgstr ""
+
+msgid "Deny login if user shell is not listed in /etc/shells."
+msgstr ""
+
+msgid "Directory Messages"
+msgstr ""
+
+msgid "Show .message file contents when entering a directory."
+msgstr ""
+
+msgid "Passive Mode"
+msgstr ""
+
+msgid "Enable Passive Mode (PASV)"
+msgstr ""
+
+msgid "Allow passive mode data connections."
+msgstr ""
+
+msgid "Minimum PASV Port"
+msgstr ""
+
+msgid "Lowest port for passive mode data connections (0 = any)."
+msgstr ""
+
+msgid "Maximum PASV Port"
+msgstr ""
+
+msgid "Highest port for passive mode data connections (0 = any)."
+msgstr ""
+
+msgid "SSL/TLS"
+msgstr ""
+
+msgid "Enable SSL/TLS"
+msgstr ""
+
+msgid "Enable SSL/TLS support (requires vsftpd-tls variant)."
+msgstr ""
+
+msgid "TLS Mode"
+msgstr ""
+
+msgid "How TLS is invoked for connections."
+msgstr ""
+
+msgid "Explicit TLS via STARTTLS (port 21)"
+msgstr ""
+
+msgid "Both Explicit (port 21) and Implicit (port 990)"
+msgstr ""
+
+msgid "Implicit TLS only (port 990)"
+msgstr ""
+
+msgid "Implicit TLS Port"
+msgstr ""
+
+msgid "TCP port for implicit TLS connections (default: 990)."
+msgstr ""
+
+msgid "Allow Anonymous SSL"
+msgstr ""
+
+msgid "Allow anonymous users to use SSL connections."
+msgstr ""
+
+msgid "Require SSL for Data"
+msgstr ""
+
+msgid "Require SSL for local user data connections."
+msgstr ""
+
+msgid "Require SSL for Login"
+msgstr ""
+
+msgid "Require SSL for local user login."
+msgstr ""
+
+msgid "Enable TLSv1"
+msgstr ""
+
+msgid "Allow TLS version 1."
+msgstr ""
+
+msgid "Enable SSLv2"
+msgstr ""
+
+msgid "Allow SSL version 2 (insecure, not recommended)."
+msgstr ""
+
+msgid "Enable SSLv3"
+msgstr ""
+
+msgid "Allow SSL version 3 (insecure, not recommended)."
+msgstr ""
+
+msgid "RSA Certificate File"
+msgstr ""
+
+msgid "Path to the SSL/TLS certificate file."
+msgstr ""
+
+msgid "RSA Private Key File"
+msgstr ""
+
+msgid "Path to the SSL/TLS private key file."
+msgstr ""
+
+msgid "Logging"
+msgstr ""
+
+msgid "Log to Syslog"
+msgstr ""
+
+msgid "Send log messages to syslog instead of a log file."
+msgstr ""
+
+msgid "Transfer Log"
+msgstr ""
+
+msgid "Enable logging of file transfers."
+msgstr ""
+
+msgid "Transfer Log File"
+msgstr ""
+
+msgid "Path to the transfer log file."
+msgstr ""
+
+msgid "Standard Xferlog Format"
+msgstr ""
+
+msgid "Use standard xferlog format (compatible with wu-ftpd)."
+msgstr ""
+
+msgid "vsftpd Log File"
+msgstr ""
+
+msgid "Path to the vsftpd-specific log file."
+msgstr ""
+
+msgid "Session Support"
+msgstr ""
+
+msgid "Maintain login sessions (requires PAM, usually disabled on OpenWrt)."
+msgstr ""
+
+msgid "User List"
+msgstr ""
+
+msgid "Enable a user list file to allow or deny specific users."
+msgstr ""
+
+msgid "User List is Deny List"
+msgstr ""
+
+msgid "If enabled, listed users are denied. If disabled, only listed users are allowed."
+msgstr ""
+
+msgid "User List File"
+msgstr ""
+
+msgid "Path to the user list file."
+msgstr ""

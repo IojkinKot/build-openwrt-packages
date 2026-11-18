@@ -1,0 +1,20 @@
+{
+  "luci-app-vsftpd": {
+    "description": "Grant UCI and RPC access to LuCI vsftpd app",
+    "read": {
+      "ubus": {
+        "luci.vsftpd": [
+          "get_status"
+        ]
+      },
+      "uci": [
+        "vsftpd"
+      ]
+    },
+    "write": {
+      "uci": [
+        "vsftpd"
+      ]
+    }
+  }
+}
