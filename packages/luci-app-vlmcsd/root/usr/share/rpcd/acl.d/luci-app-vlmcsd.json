@@ -1,0 +1,26 @@
+{
+	"luci-app-vlmcsd": {
+		"description": "Manage vlmcsd settings and its standard INI file",
+		"read": {
+			"ubus": {
+				"service": [ "list" ],
+				"file": [ "read" ],
+				"uci": [ "changes" ]
+			},
+			"uci": [ "vlmcsd" ],
+			"file": {
+				"/etc/vlmcsd.ini": [ "read" ]
+			}
+		},
+		"write": {
+			"ubus": {
+				"file": [ "write", "exec" ]
+			},
+			"uci": [ "vlmcsd" ],
+			"file": {
+				"/etc/vlmcsd.ini": [ "write" ],
+				"/etc/init.d/vlmcsd restart": [ "exec" ]
+			}
+		}
+	}
+}

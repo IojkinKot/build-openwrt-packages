@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Language: ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "vlmcsd"
+msgstr "vlmcsd"
+
+msgid "Configure vlmcsd and automatic DNS SRV discovery."
+msgstr "Настройка vlmcsd и автоматического обнаружения через DNS SRV."
+
+msgid "General settings"
+msgstr "Основные настройки"
+
+msgid "INI configuration"
+msgstr "Конфигурация INI"
+
+msgid "Service status"
+msgstr "Состояние сервиса"
+
+msgid "Running"
+msgstr "Работает"
+
+msgid "Stopped"
+msgstr "Остановлен"
+
+msgid "Unable to query service status"
+msgstr "Не удалось получить состояние сервиса"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Allow the procd service to run vlmcsd."
+msgstr "Разрешить запуск vlmcsd под управлением procd."
+
+msgid "Automatic DNS SRV record"
+msgstr "Автоматическая DNS SRV-запись"
+
+msgid "Let the service maintain the DNS SRV record for automatic discovery."
+msgstr "Сервис будет поддерживать DNS SRV-запись для автоматического обнаружения."
+
+msgid "Port"
+msgstr "Порт"
+
+msgid "INI file path"
+msgstr "Путь к файлу INI"
+
+msgid "KMD file path"
+msgstr "Путь к файлу KMD"
+
+msgid "Contents of /etc/vlmcsd.ini"
+msgstr "Содержимое /etc/vlmcsd.ini"
+
+msgid "Save INI and restart service"
+msgstr "Сохранить INI и перезапустить сервис"
+
+msgid "INI changes are saved immediately, outside UCI rollback. This button does not save or apply the settings on the General settings tab."
+msgstr "Изменения INI сохраняются сразу и не участвуют в откате UCI. Эта кнопка не сохраняет и не применяет изменения на вкладке «Основные настройки»."
+
+msgid "Unable to read INI file:"
+msgstr "Не удалось прочитать файл INI:"
+
+msgid "Read-only access: editing and restarting are disabled."
+msgstr "Доступ только для чтения: редактирование и перезапуск недоступны."
+
+msgid "The editor is available only for /etc/vlmcsd.ini. If you change the configuration path, apply the settings and reload this page."
+msgstr "Редактор доступен только для /etc/vlmcsd.ini. После изменения пути к конфигурации примените настройки и перезагрузите страницу."
+
+msgid "The service command returned an error."
+msgstr "Команда управления сервисом завершилась с ошибкой."
+
+msgid "INI file saved and service restart requested."
+msgstr "Файл INI сохранён, запрос на перезапуск сервиса выполнен."
+
+msgid "INI file saved, but service restart failed:"
+msgstr "Файл INI сохранён, но перезапустить сервис не удалось:"
+
+msgid "Unable to save INI file:"
+msgstr "Не удалось сохранить файл INI:"
+
+msgid "Unable to check pending UCI changes:"
+msgstr "Не удалось проверить неприменённые изменения UCI:"
+
+msgid "Apply or revert pending vlmcsd settings and reload this page before editing INI."
+msgstr "Перед редактированием INI примените или отмените ожидающие изменения настроек vlmcsd и перезагрузите страницу."

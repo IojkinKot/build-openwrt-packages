@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "vlmcsd"
+msgstr ""
+
+msgid "Configure vlmcsd and automatic DNS SRV discovery."
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "INI configuration"
+msgstr ""
+
+msgid "Service status"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Stopped"
+msgstr ""
+
+msgid "Unable to query service status"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Allow the procd service to run vlmcsd."
+msgstr ""
+
+msgid "Automatic DNS SRV record"
+msgstr ""
+
+msgid "Let the service maintain the DNS SRV record for automatic discovery."
+msgstr ""
+
+msgid "Port"
+msgstr ""
+
+msgid "INI file path"
+msgstr ""
+
+msgid "KMD file path"
+msgstr ""
+
+msgid "Contents of /etc/vlmcsd.ini"
+msgstr ""
+
+msgid "Save INI and restart service"
+msgstr ""
+
+msgid "INI changes are saved immediately, outside UCI rollback. This button does not save or apply the settings on the General settings tab."
+msgstr ""
+
+msgid "Unable to read INI file:"
+msgstr ""
+
+msgid "Read-only access: editing and restarting are disabled."
+msgstr ""
+
+msgid "The editor is available only for /etc/vlmcsd.ini. If you change the configuration path, apply the settings and reload this page."
+msgstr ""
+
+msgid "The service command returned an error."
+msgstr ""
+
+msgid "INI file saved and service restart requested."
+msgstr ""
+
+msgid "INI file saved, but service restart failed:"
+msgstr ""
+
+msgid "Unable to save INI file:"
+msgstr ""
+
+msgid "Unable to check pending UCI changes:"
+msgstr ""
+
+msgid "Apply or revert pending vlmcsd settings and reload this page before editing INI."
+msgstr ""
