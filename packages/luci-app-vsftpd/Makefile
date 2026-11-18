@@ -10,6 +10,6 @@ LUCI_PKGARCH:=all
 PKG_LICENSE:=GPL-2.0
 PKG_MAINTAINER:=
 
-include ../../luci.mk
+include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
