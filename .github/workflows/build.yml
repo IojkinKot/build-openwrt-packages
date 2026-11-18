@@ -27,6 +27,7 @@ jobs:
               #25.12.*
               CONFIG_BUSYBOX_CONFIG_FEATURE_EDITING_HISTORY=8192
               CONFIG_PACKAGE_dnsmasq_full_ipset=y
+              CONFIG_PACKAGE_vsftpd-tls=m
 
     steps:
       - name: Checkout
