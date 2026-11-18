@@ -1,30 +1,74 @@
 #!/bin/sh /etc/rc.common
 
 START=90
+USE_PROCD=1
 
-start(){
-	if [ ! -f "/tmp/vlmcsd.pid" ]; then
-		/usr/bin/vlmcsd -i /etc/vlmcsd.ini -j /etc/vlmcsd.kmd -p /tmp/vlmcsd.pid -l syslog -L 0.0.0.0:1688 -L [::]:1688
-		echo "KMS Server has started."
+sync_srv_record() {
+	local enabled="$1" port="$2"
+	local domain hostname field changed=0 pending
+
+	# Do not commit unrelated pending DHCP changes.
+	pending=$(uci -q changes dhcp) || return 1
+	[ -z "$pending" ] || return 1
+
+	if [ "$enabled" -eq 1 ]; then
+		domain=$(uci -q get 'dhcp.@dnsmasq[0].domain') || domain=''
+		hostname=$(uci -q get 'system.@system[0].hostname') || hostname=''
+		domain=${domain:-lan}
+		hostname=${hostname:-OpenWrt}
+		set -- "srv=_vlmcs._tcp.$domain" "target=$hostname.$domain" \
+			"port=$port" 'class=0' 'weight=100'
+
+		[ "$(uci -q get dhcp.vlmcsd)" = srvhost ] || changed=1
+		for field in "$@"; do
+			[ "$(uci -q get "dhcp.vlmcsd.${field%%=*}")" = "${field#*=}" ] || changed=1
+		done
+		[ "$changed" -eq 1 ] || return 0
 	else
-		echo "KMS Server has already started."
+		uci -q get dhcp.vlmcsd >/dev/null || return 0
 	fi
+
+	if [ "$enabled" -eq 1 ]; then
+		uci -q set dhcp.vlmcsd=srvhost || return 1
+		for field in "$@"; do
+			uci -q set "dhcp.vlmcsd.$field" || return 1
+		done
+	else
+		uci -q delete dhcp.vlmcsd || return 1
+	fi
+
+	uci -q commit dhcp || return 1
+	procd_set_config_changed dhcp
 }
 
-stop(){
-	if [ ! -f "/tmp/vlmcsd.pid" ]; then
-		echo "KMS Server is not running."
-	else
-		pid=`cat /tmp/vlmcsd.pid`
-		kill $pid
-		rm -f /tmp/vlmcsd.pid
-		echo "KMS Server has stopped."
+start_service() {
+	local enabled auto_update_srv port config_file kms_data_file
+
+	config_load vlmcsd
+	config_get_bool enabled config enabled 0
+	config_get_bool auto_update_srv config auto_update_srv 1
+	config_get port config port 1688
+
+	if [ "$auto_update_srv" -eq 1 ]; then
+		sync_srv_record "$enabled" "$port" || \
+			logger -t vlmcsd 'SRV record update failed or deferred: check pending DHCP changes and UCI errors'
 	fi
+	[ "$enabled" -eq 1 ] || return 0
+
+	config_get config_file config config_file /etc/vlmcsd.ini
+	config_get kms_data_file config kms_data_file /etc/vlmcsd.kmd
+
+	procd_open_instance
+	procd_set_param command /usr/bin/vlmcsd -D -l syslog \
+		-L "0.0.0.0:$port" -L "[::]:$port"
+	procd_append_param command -i "$config_file"
+	procd_append_param command -j "$kms_data_file"
+	procd_set_param file "$config_file"
+	procd_append_param file "$kms_data_file"
+	procd_set_param respawn
+	procd_close_instance
 }
 
-restart(){
-	stop
-	sleep 1
-	start
-	echo "KMS Server has restarted."
+service_triggers() {
+	procd_add_reload_trigger vlmcsd dhcp system
 }
