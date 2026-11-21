@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Language: ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "VirtualHere USB Server"
+msgstr "USB-сервер VirtualHere"
+
+msgid "Service Status"
+msgstr "Статус службы"
+
+msgid "Running"
+msgstr "Запущена"
+
+msgid "Stopped"
+msgstr "Остановлена"
+
+msgid "Unavailable"
+msgstr "Недоступен"
+
+msgid "Enabled"
+msgstr "Включить"
+
+msgid "Contents of /etc/virtualhere.conf"
+msgstr "Содержимое /etc/virtualhere.conf"
+
+msgid "Save file"
+msgstr "Сохранить файл"
+
+msgid "Saving writes the file immediately, outside UCI rollback, without restarting the service."
+msgstr "Файл сохраняется сразу, без перезапуска службы. Откат настроек UCI не затрагивает этот файл."
+
+msgid "Configuration file saved."
+msgstr "Файл конфигурации сохранён."
+
+msgid "Unable to save the configuration file:"
+msgstr "Не удалось сохранить файл конфигурации:"
+
+msgid "Unable to read the configuration file:"
+msgstr "Не удалось прочитать файл конфигурации:"

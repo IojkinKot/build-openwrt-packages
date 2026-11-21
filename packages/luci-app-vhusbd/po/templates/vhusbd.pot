@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "VirtualHere USB Server"
+msgstr ""
+
+msgid "Service Status"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Stopped"
+msgstr ""
+
+msgid "Unavailable"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Contents of /etc/virtualhere.conf"
+msgstr ""
+
+msgid "Save file"
+msgstr ""
+
+msgid "Saving writes the file immediately, outside UCI rollback, without restarting the service."
+msgstr ""
+
+msgid "Configuration file saved."
+msgstr ""
+
+msgid "Unable to save the configuration file:"
+msgstr ""
+
+msgid "Unable to read the configuration file:"
+msgstr ""

@@ -1,0 +1,14 @@
+{
+	"admin/services/vhusbd": {
+		"title": "VirtualHere USB Server",
+		"order": 100,
+		"action": {
+			"type": "view",
+			"path": "vhusbd/config"
+		},
+		"depends": {
+			"acl": [ "luci-app-vhusbd" ],
+			"uci": { "vhusbd": true }
+		}
+	}
+}

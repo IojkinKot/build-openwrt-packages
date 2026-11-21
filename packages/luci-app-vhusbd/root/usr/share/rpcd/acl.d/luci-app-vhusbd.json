@@ -1,0 +1,24 @@
+{
+	"luci-app-vhusbd": {
+		"description": "Manage VirtualHere USB Server settings",
+		"read": {
+			"ubus": {
+				"luci.vhusbd": [ "get_status" ],
+				"file": [ "read" ]
+			},
+			"uci": [ "vhusbd" ],
+			"file": {
+				"/etc/virtualhere.conf": [ "read" ]
+			}
+		},
+		"write": {
+			"ubus": {
+				"file": [ "write" ]
+			},
+			"uci": [ "vhusbd" ],
+			"file": {
+				"/etc/virtualhere.conf": [ "write" ]
+			}
+		}
+	}
+}
