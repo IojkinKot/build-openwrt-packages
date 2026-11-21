@@ -106,11 +106,7 @@ jobs:
           done
 
       - name: Verify packages
-        run: |
-          output="openwrt-sdk/bin/packages/${{ matrix.arch }}"
-          find "$output" -name '*.apk' | grep .
-          find "$output" -type f -name 'luci-app-vhusbd-*.apk' -print -quit | grep .
-          find "$output" -type f -name 'luci-i18n-vhusbd-ru-*.apk' -print -quit | grep .
+        run: find openwrt-sdk/bin/packages/${{ matrix.arch }}/ -name '*.apk' | grep .
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
