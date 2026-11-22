@@ -79,6 +79,8 @@ return view.extend({
 			spellcheck: 'false',
 			'aria-label': _('Contents of /etc/virtualhere.conf')
 		});
+		this.editor.style.width = '100%';
+		this.editor.style.boxSizing = 'border-box';
 		this.editor.value = file.content ?? '';
 		this.savedContent = file.missing ? null : this.editor.value;
 		this.editor.disabled = !this.fileEditable;
