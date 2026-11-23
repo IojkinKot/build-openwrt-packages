@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sstp-client
 PKG_VERSION:=1.0.20
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://gitlab.com/sstp-project/sstp-client/-/archive/1.0.20/
@@ -27,7 +27,7 @@ define Package/sstp-client
   SECTION:=net
   CATEGORY:=Network
   SUBMENU:=VPN
-  DEPENDS=+libevent2 +libopenssl +ppp +resolveip
+  DEPENDS=+libevent2 +libopenssl +ppp +resolveip +libopenssl-legacy
   TITLE:=SSTP-Client is a SSTP client for Linux.
   URL:=https://gitlab.com/sstp-project/sstp-client
 endef
