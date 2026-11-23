@@ -18,7 +18,7 @@ jobs:
             custom_packages: "sstp-client vsftpd luci-app-vsftpd vlmcsd luci-app-vlmcsd vhusbd luci-app-vhusbd"
             builtin_packages: "dnsmasq busybox"
             extra_config: |
-              CONFIG_LUCI_LANG_ru=m
+              CONFIG_LUCI_LANG_ru=y
               CONFIG_BUSYBOX_CUSTOM=y
               CONFIG_BUSYBOX_CONFIG_FEATURE_SYSLOG_INFO=y
               CONFIG_BUSYBOX_CONFIG_FEATURE_CROND_SPECIAL_TIMES=y
@@ -86,12 +86,16 @@ jobs:
         run: |
           cd openwrt-sdk
 
-          grep -qF "src-link custom" feeds.conf.default || echo "src-link custom ${{ github.workspace }}" >> feeds.conf.default
+          grep -qF "src-link custom" feeds.conf.default || sed -i "1i src-link custom ${{ github.workspace }}" feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -p custom -f ${{ matrix.custom_packages }}
           if [ -n "${{ matrix.builtin_packages }}" ]; then
             ./scripts/feeds install ${{ matrix.builtin_packages }}
           fi
+
+          # Поднять PKG_RELEASE у dnsmasq, чтобы он был новее версии из официального репозитория
+          dnsmasq_mk="$(readlink -f package/feeds/base/dnsmasq/Makefile)"
+          sed -i -E 's/^(PKG_RELEASE:=)[0-9]+/\1100/' "$dnsmasq_mk"
 
       - name: Build package
         env:
