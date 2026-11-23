@@ -42,17 +42,18 @@ return view.extend({
 	},
 
 	updateStatus: function(data) {
-		let message = _('Unable to query service status');
+		let running = null;
 
 		if (data != null) {
 			const instances = data.vlmcsd && data.vlmcsd.instances || {};
-			const running = Object.keys(instances).some(function(name) {
+			running = Object.keys(instances).some(function(name) {
 				return instances[name].running === true;
 			});
-			message = running ? _('Running') : _('Stopped');
 		}
 
-		this.statusNode.textContent = message;
+		this.statusNode.textContent = running === true ? _('Running')
+			: running === false ? _('Stopped') : _('Unable to query service status');
+		this.statusNode.style.color = running === true ? 'green' : running === false ? 'red' : '';
 	},
 
 	pollStatus: function() {
@@ -151,21 +152,19 @@ return view.extend({
 		this.loadedConfigPath = uci.get('vlmcsd', 'config', 'config_file') || INI_FILE;
 		this.restartPending = false;
 
-		const m = this.map = new form.Map('vlmcsd', _('vlmcsd'),
-			_('Configure vlmcsd and automatic DNS SRV discovery.'));
+		this.statusNode = E('span', { 'role': 'status', 'style': 'font-weight: bold' });
+		this.updateStatus(data[2]);
+		const description = E('div', {}, [
+			E('p', {}, [ E('strong', {}, _('Service status') + ': '), this.statusNode ]),
+			E('p', {}, _('Configure vlmcsd and automatic DNS SRV discovery.'))
+		]);
+		const m = this.map = new form.Map('vlmcsd', _('vlmcsd'), description);
 		const s = m.section(form.NamedSection, 'config', 'vlmcsd');
 		s.addremove = false;
 		s.tab('general', _('General settings'));
 		s.tab('ini', _('INI configuration'));
 
-		let o = s.taboption('general', form.DummyValue, '_status', _('Service status'));
-		o.renderWidget = () => {
-			this.statusNode = E('span', { 'role': 'status' });
-			this.updateStatus(data[2]);
-			return this.statusNode;
-		};
-
-		o = s.taboption('general', form.Flag, 'enabled', _('Enable'),
+		let o = s.taboption('general', form.Flag, 'enabled', _('Enable'),
 			_('Allow the procd service to run vlmcsd.'));
 		o.default = '0';
 		o.rmempty = false;
@@ -202,6 +201,8 @@ return view.extend({
 				'spellcheck': 'false',
 				'aria-label': _('Contents of /etc/vlmcsd.ini')
 			});
+			this.editor.style.width = '100%';
+			this.editor.style.boxSizing = 'border-box';
 			this.editor.value = draft;
 			this.saveIniButton = E('button', {
 				'class': 'cbi-button cbi-button-apply',

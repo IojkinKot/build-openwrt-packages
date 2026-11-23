@@ -18,7 +18,7 @@ msgid "INI configuration"
 msgstr "Конфигурация INI"
 
 msgid "Service status"
-msgstr "Состояние сервиса"
+msgstr "Состояние службы"
 
 msgid "Running"
 msgstr "Работает"

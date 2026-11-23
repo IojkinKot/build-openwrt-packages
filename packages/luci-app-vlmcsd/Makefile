@@ -5,7 +5,7 @@ LUCI_DEPENDS:=+luci-base +vlmcsd
 LUCI_PKGARCH:=all
 
 PKG_VERSION:=2.0.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 PKG_LICENSE:=MIT
 
 include $(TOPDIR)/feeds/luci/luci.mk
